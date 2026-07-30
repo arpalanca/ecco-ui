@@ -1,0 +1,1016 @@
+/*!
+ * Ecco UI v0.1.0
+ * Components for Ecco CSS. Copy the HTML. Ship the UI.
+ * MIT License · https://github.com/arpalanca/ecco-ui
+ *
+ * Requires Ecco CSS tokens (--ecco-*). Link Ecco CSS first, then this file.
+ */
+
+/* -------------------------------------------------------------------------- */
+/* Shared helpers                                                              */
+/* -------------------------------------------------------------------------- */
+
+.ecco-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ecco-ui-gap, var(--ecco-spacing));
+}
+
+.ecco-stack > :first-child {
+  margin-top: 0;
+}
+
+.ecco-stack > :last-child {
+  margin-bottom: 0;
+}
+
+.ecco-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ecco-ui-gap, 0.75rem);
+}
+
+.ecco-cluster > :last-child {
+  margin-bottom: 0;
+}
+
+.ecco-grid {
+  display: grid;
+  gap: var(--ecco-ui-gap, var(--ecco-spacing));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, var(--ecco-ui-col, 16rem)), 1fr)
+  );
+}
+
+.ecco-grid > :last-child {
+  margin-bottom: 0;
+}
+
+.ecco-full {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}
+
+body > .ecco-full,
+body > header.ecco-full,
+body > footer.ecco-full,
+body > nav.ecco-full,
+body > section.ecco-full {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+}
+
+.ecco-inner {
+  width: min(100% - 2 * var(--ecco-spacing), var(--ecco-ui-width, 64rem));
+  margin-inline: auto;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Button variants (opt-in classes on native buttons)                          */
+/* -------------------------------------------------------------------------- */
+
+.ecco-btn-outline,
+button.ecco-btn-outline,
+a[role="button"].ecco-btn-outline {
+  color: var(--ecco-primary);
+  background-color: transparent;
+  border-color: var(--ecco-primary);
+}
+
+.ecco-btn-outline:hover,
+button.ecco-btn-outline:hover,
+a[role="button"].ecco-btn-outline:hover {
+  color: var(--ecco-primary-text);
+  background-color: var(--ecco-primary);
+  border-color: var(--ecco-primary);
+}
+
+.ecco-btn-ghost,
+button.ecco-btn-ghost,
+a[role="button"].ecco-btn-ghost {
+  color: var(--ecco-text);
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.ecco-btn-ghost:hover,
+button.ecco-btn-ghost:hover,
+a[role="button"].ecco-btn-ghost:hover {
+  color: var(--ecco-text);
+  background-color: var(--ecco-bg-subtle);
+  border-color: transparent;
+}
+
+.ecco-btn-sm,
+button.ecco-btn-sm,
+a[role="button"].ecco-btn-sm {
+  padding: 0.35em 0.75em;
+  font-size: 0.875rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Nav                                                                         */
+/* -------------------------------------------------------------------------- */
+
+.ecco-nav {
+  margin-bottom: 0;
+  padding-block: 0.85rem;
+  border-bottom: var(--ecco-border-width) solid var(--ecco-border);
+  background: var(--ecco-surface);
+}
+
+.ecco-nav .ecco-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1.25rem;
+}
+
+.ecco-nav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0;
+  color: var(--ecco-text);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.ecco-nav-brand:hover {
+  color: var(--ecco-primary);
+  text-decoration: none;
+}
+
+.ecco-nav-brand img,
+.ecco-nav-brand svg {
+  width: 1.65rem;
+  height: 1.65rem;
+  border-radius: 0.35rem;
+}
+
+.ecco-nav-menu {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ecco-nav-menu a {
+  color: var(--ecco-muted);
+  font-weight: 550;
+  text-decoration: none;
+}
+
+.ecco-nav-menu a:hover,
+.ecco-nav-menu a[aria-current="page"] {
+  color: var(--ecco-primary);
+  text-decoration: none;
+}
+
+.ecco-nav-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.ecco-nav-actions > :last-child {
+  margin-bottom: 0;
+}
+
+.ecco-nav-actions button,
+.ecco-nav-actions a[role="button"] {
+  margin: 0;
+}
+
+@media (max-width: 40rem) {
+  .ecco-nav-actions button,
+  .ecco-nav-actions a[role="button"] {
+    width: auto;
+    display: inline-block;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Hero                                                                        */
+/* -------------------------------------------------------------------------- */
+
+.ecco-hero {
+  position: relative;
+  margin-bottom: calc(var(--ecco-spacing) * 2);
+  padding-block: clamp(2.75rem, 8vw, 5.25rem);
+  overflow: hidden;
+  background:
+    radial-gradient(
+      120% 80% at 8% -10%,
+      var(--ecco-accent) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      80% 60% at 100% 10%,
+      hsl(var(--ecco-hue) 70% 50% / 0.12),
+      transparent 55%
+    ),
+    var(--ecco-bg);
+  border-bottom: var(--ecco-border-width) solid var(--ecco-border);
+}
+
+.ecco-hero .ecco-inner {
+  display: grid;
+  gap: 1rem;
+  max-width: min(100% - 2 * var(--ecco-spacing), 44rem);
+}
+
+.ecco-hero-kicker {
+  margin: 0;
+  color: var(--ecco-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ecco-hero h1 {
+  margin: 0;
+  font-size: clamp(2.35rem, 5.5vw, 3.35rem);
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.ecco-hero p {
+  margin: 0;
+  max-width: 34rem;
+  color: var(--ecco-muted);
+  font-size: 1.125rem;
+}
+
+.ecco-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.65rem;
+  margin-top: 0.35rem;
+}
+
+.ecco-hero-actions > :last-child {
+  margin-bottom: 0;
+}
+
+.ecco-hero-actions button,
+.ecco-hero-actions a[role="button"] {
+  margin: 0;
+}
+
+@media (max-width: 40rem) {
+  .ecco-hero-actions button,
+  .ecco-hero-actions a[role="button"] {
+    width: auto;
+    display: inline-block;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Card                                                                        */
+/* -------------------------------------------------------------------------- */
+
+.ecco-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 0 0 var(--ecco-spacing);
+  padding: calc(var(--ecco-spacing) * 1.15);
+  background: var(--ecco-surface);
+  border: var(--ecco-border-width) solid var(--ecco-border);
+  border-radius: calc(var(--ecco-border-radius) * 1.25);
+  box-shadow: var(--ecco-shadow);
+}
+
+.ecco-card > :first-child {
+  margin-top: 0;
+}
+
+.ecco-card > :last-child {
+  margin-bottom: 0;
+}
+
+.ecco-card-media {
+  display: block;
+  width: calc(100% + 2 * calc(var(--ecco-spacing) * 1.15));
+  max-width: none;
+  margin: calc(var(--ecco-spacing) * -1.15) calc(var(--ecco-spacing) * -1.15) 0;
+  border-radius: calc(var(--ecco-border-radius) * 1.25)
+    calc(var(--ecco-border-radius) * 1.25) 0 0;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--ecco-bg-subtle);
+}
+
+.ecco-card-title {
+  margin: 0;
+  font-size: var(--ecco-font-size-h4);
+  line-height: var(--ecco-line-height-heading);
+}
+
+.ecco-card-meta {
+  margin: 0;
+  color: var(--ecco-muted);
+  font-size: var(--ecco-font-size-small);
+}
+
+.ecco-card-body {
+  margin: 0;
+  color: var(--ecco-muted);
+}
+
+.ecco-card-body p {
+  margin: 0;
+}
+
+.ecco-card-body > :last-child {
+  margin-bottom: 0;
+}
+
+.ecco-card-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.35rem;
+}
+
+.ecco-card-footer > :last-child {
+  margin-bottom: 0;
+}
+
+.ecco-card-footer button,
+.ecco-card-footer a[role="button"] {
+  margin: 0;
+}
+
+@media (max-width: 40rem) {
+  .ecco-card-footer button,
+  .ecco-card-footer a[role="button"] {
+    width: auto;
+    display: inline-block;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Alert                                                                       */
+/* -------------------------------------------------------------------------- */
+
+.ecco-alert {
+  --ecco-alert-accent: var(--ecco-primary);
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.7rem 0.9rem;
+  align-items: start;
+  margin: 0 0 var(--ecco-spacing);
+  padding: 0.95rem 1.05rem 0.95rem 1.15rem;
+  border: var(--ecco-border-width) solid var(--ecco-border);
+  border-radius: var(--ecco-border-radius);
+  background: var(--ecco-bg-subtle);
+  color: var(--ecco-text);
+  overflow: hidden;
+}
+
+.ecco-alert::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: 0.28rem;
+  background: var(--ecco-alert-accent);
+}
+
+.ecco-alert:has(.ecco-alert-close) {
+  grid-template-columns: auto 1fr auto;
+}
+
+.ecco-alert > :last-child {
+  margin-bottom: 0;
+}
+
+.ecco-alert-icon {
+  display: grid;
+  place-items: center;
+  width: 1.65rem;
+  height: 1.65rem;
+  margin-top: 0.02rem;
+  border-radius: 999px;
+  background: var(--ecco-accent);
+  color: var(--ecco-primary);
+  font-family: var(--ecco-font-family), system-ui, sans-serif;
+  font-size: 0.88rem;
+  font-style: normal !important;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: none;
+  font-synthesis: none;
+  user-select: none;
+}
+
+.ecco-alert-icon svg {
+  width: 0.85rem;
+  height: 0.85rem;
+  display: block;
+}
+
+.ecco-alert-body {
+  min-width: 0;
+}
+
+.ecco-alert-body > :first-child {
+  margin-top: 0;
+}
+
+.ecco-alert-body > :last-child {
+  margin-bottom: 0;
+}
+
+.ecco-alert-body p {
+  margin: 0;
+  color: var(--ecco-muted);
+  font-size: 0.95rem;
+}
+
+.ecco-alert strong {
+  display: block;
+  margin: 0 0 0.2em;
+  color: var(--ecco-text);
+  line-height: 1.35;
+}
+
+.ecco-alert-close {
+  margin: 0 !important;
+  padding: 0.15em 0.45em !important;
+  width: auto !important;
+  min-width: 2rem;
+  color: var(--ecco-muted) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.ecco-alert-close:hover {
+  color: var(--ecco-text) !important;
+  background: var(--ecco-surface) !important;
+}
+
+.ecco-alert--success {
+  --ecco-alert-accent: hsl(145 55% 36%);
+  background: hsl(145 40% 95%);
+}
+
+.ecco-alert--success .ecco-alert-icon {
+  color: hsl(145 55% 28%);
+  background: hsl(145 45% 88%);
+}
+
+.ecco-alert--warning {
+  --ecco-alert-accent: hsl(38 90% 42%);
+  background: hsl(42 90% 95%);
+}
+
+.ecco-alert--warning .ecco-alert-icon {
+  color: hsl(32 80% 32%);
+  background: hsl(42 90% 86%);
+}
+
+.ecco-alert--danger {
+  --ecco-alert-accent: hsl(0 65% 48%);
+  background: hsl(0 70% 97%);
+}
+
+.ecco-alert--danger .ecco-alert-icon {
+  color: hsl(0 65% 40%);
+  background: hsl(0 55% 90%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .ecco-alert--success {
+    background: hsl(145 22% 14%);
+  }
+
+  .ecco-alert--success .ecco-alert-icon {
+    color: hsl(145 45% 68%);
+    background: hsl(145 28% 20%);
+  }
+
+  .ecco-alert--warning {
+    background: hsl(38 24% 14%);
+  }
+
+  .ecco-alert--warning .ecco-alert-icon {
+    color: hsl(42 80% 68%);
+    background: hsl(38 30% 20%);
+  }
+
+  .ecco-alert--danger {
+    background: hsl(0 24% 14%);
+  }
+
+  .ecco-alert--danger .ecco-alert-icon {
+    color: hsl(0 70% 70%);
+    background: hsl(0 30% 20%);
+  }
+}
+
+@media (max-width: 40rem) {
+  .ecco-alert:has(.ecco-alert-close) {
+    grid-template-columns: auto 1fr;
+  }
+
+  .ecco-alert-close {
+    grid-column: 2;
+    justify-self: end;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Badge                                                                       */
+/* -------------------------------------------------------------------------- */
+
+.ecco-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.15em 0.55em;
+  border-radius: 999px;
+  border: var(--ecco-border-width) solid var(--ecco-border);
+  background: var(--ecco-bg-subtle);
+  color: var(--ecco-muted);
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.ecco-badge--primary {
+  color: var(--ecco-primary-text);
+  background: var(--ecco-primary);
+  border-color: var(--ecco-primary);
+}
+
+.ecco-badge--accent {
+  color: var(--ecco-primary-hover);
+  background: var(--ecco-accent);
+  border-color: var(--ecco-accent);
+}
+
+.ecco-badge--success {
+  color: hsl(145 55% 28%);
+  background: hsl(145 45% 90%);
+  border-color: transparent;
+}
+
+.ecco-badge--warning {
+  color: hsl(32 80% 30%);
+  background: hsl(42 95% 88%);
+  border-color: transparent;
+}
+
+.ecco-badge--danger {
+  color: hsl(0 65% 38%);
+  background: hsl(0 55% 92%);
+  border-color: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  .ecco-badge--success {
+    color: hsl(145 45% 72%);
+    background: hsl(145 30% 18%);
+  }
+
+  .ecco-badge--warning {
+    color: hsl(42 80% 70%);
+    background: hsl(38 40% 18%);
+  }
+
+  .ecco-badge--danger {
+    color: hsl(0 70% 72%);
+    background: hsl(0 35% 20%);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Breadcrumb                                                                  */
+/* -------------------------------------------------------------------------- */
+
+.ecco-breadcrumb {
+  margin: 0 0 var(--ecco-spacing);
+}
+
+.ecco-breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--ecco-font-size-small);
+}
+
+.ecco-breadcrumb li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+  color: var(--ecco-muted);
+}
+
+.ecco-breadcrumb li:not(:last-child)::after {
+  content: "/";
+  color: var(--ecco-border);
+  font-weight: 400;
+}
+
+.ecco-breadcrumb a {
+  color: var(--ecco-muted);
+  text-decoration: none;
+}
+
+.ecco-breadcrumb a:hover {
+  color: var(--ecco-primary);
+  text-decoration: underline;
+}
+
+.ecco-breadcrumb [aria-current="page"] {
+  color: var(--ecco-text);
+  font-weight: 600;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Tabs                                                                        */
+/* -------------------------------------------------------------------------- */
+
+.ecco-tabs {
+  margin: 0 0 var(--ecco-spacing);
+  border: var(--ecco-border-width) solid var(--ecco-border);
+  border-radius: calc(var(--ecco-border-radius) * 1.15);
+  background: var(--ecco-surface);
+  overflow: hidden;
+}
+
+.ecco-tabs-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem;
+  padding: 0.4rem;
+  margin: 0;
+  list-style: none;
+  border-bottom: var(--ecco-border-width) solid var(--ecco-border);
+  background: var(--ecco-bg-subtle);
+}
+
+.ecco-tabs-list [role="tab"],
+.ecco-tabs-list button {
+  margin: 0 !important;
+  padding: 0.45em 0.9em !important;
+  width: auto !important;
+  display: inline-flex !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ecco-muted) !important;
+  background: transparent !important;
+  border: var(--ecco-border-width) solid transparent !important;
+  border-radius: calc(var(--ecco-border-radius) * 0.85) !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+.ecco-tabs-list [role="tab"]:hover,
+.ecco-tabs-list button:hover {
+  color: var(--ecco-text) !important;
+  background: var(--ecco-surface) !important;
+}
+
+.ecco-tabs-list [role="tab"][aria-selected="true"],
+.ecco-tabs-list button[aria-selected="true"] {
+  color: var(--ecco-text) !important;
+  background: var(--ecco-surface) !important;
+  border-color: var(--ecco-border) !important;
+}
+
+.ecco-tabs-list [role="tab"]:focus-visible,
+.ecco-tabs-list button:focus-visible {
+  outline: none;
+  box-shadow: var(--ecco-focus) !important;
+}
+
+.ecco-tab-panel {
+  padding: 1rem 1.1rem 1.15rem;
+}
+
+.ecco-tab-panel[hidden] {
+  display: none !important;
+}
+
+.ecco-tab-panel > :first-child {
+  margin-top: 0;
+}
+
+.ecco-tab-panel > :last-child {
+  margin-bottom: 0;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Modal (native <dialog> + light helpers)                                     */
+/* -------------------------------------------------------------------------- */
+
+.ecco-modal {
+  width: min(100% - 2 * var(--ecco-spacing), var(--ecco-ui-modal-width, 28rem));
+  padding: 0;
+  border: var(--ecco-border-width) solid var(--ecco-border);
+  border-radius: calc(var(--ecco-border-radius) * 1.35);
+  background: var(--ecco-surface);
+  color: var(--ecco-text);
+  box-shadow: 0 1.25rem 3rem hsl(210 24% 10% / 0.22);
+}
+
+.ecco-modal::backdrop {
+  background: hsl(210 18% 10% / 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.ecco-modal-header,
+.ecco-modal-body,
+.ecco-modal-footer {
+  padding: 1rem 1.15rem;
+}
+
+.ecco-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: var(--ecco-border-width) solid var(--ecco-border);
+}
+
+.ecco-modal-header h2,
+.ecco-modal-header h3 {
+  margin: 0;
+  font-size: var(--ecco-font-size-h4);
+}
+
+.ecco-modal-body > :first-child {
+  margin-top: 0;
+}
+
+.ecco-modal-body > :last-child {
+  margin-bottom: 0;
+}
+
+.ecco-modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  border-top: var(--ecco-border-width) solid var(--ecco-border);
+  background: var(--ecco-bg-subtle);
+}
+
+.ecco-modal-footer > :last-child {
+  margin-bottom: 0;
+}
+
+.ecco-modal-footer button,
+.ecco-modal-footer a[role="button"] {
+  margin: 0;
+}
+
+.ecco-modal-close {
+  margin: 0 !important;
+  padding: 0.2em 0.5em !important;
+  width: auto !important;
+  min-width: 2rem;
+  color: var(--ecco-muted) !important;
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.ecco-modal-close:hover {
+  color: var(--ecco-text) !important;
+  background: var(--ecco-bg-subtle) !important;
+}
+
+@media (max-width: 40rem) {
+  .ecco-modal-footer button,
+  .ecco-modal-footer a[role="button"],
+  .ecco-modal-close {
+    width: auto !important;
+    display: inline-block !important;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Accordion (details enhancement)                                             */
+/* -------------------------------------------------------------------------- */
+
+.ecco-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0 0 var(--ecco-spacing);
+}
+
+.ecco-accordion details {
+  margin: 0;
+}
+
+.ecco-accordion summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.ecco-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.ecco-accordion summary::after {
+  content: "+";
+  flex: 0 0 auto;
+  color: var(--ecco-muted);
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.ecco-accordion details[open] > summary::after {
+  content: "−";
+}
+
+/* -------------------------------------------------------------------------- */
+/* Empty state                                                                 */
+/* -------------------------------------------------------------------------- */
+
+.ecco-empty {
+  display: grid;
+  justify-items: center;
+  gap: 0.65rem;
+  margin: 0 0 var(--ecco-spacing);
+  padding: calc(var(--ecco-spacing) * 2) var(--ecco-spacing);
+  text-align: center;
+  border: var(--ecco-border-width) dashed var(--ecco-border);
+  border-radius: calc(var(--ecco-border-radius) * 1.25);
+  background: var(--ecco-bg-subtle);
+}
+
+.ecco-empty > :first-child {
+  margin-top: 0;
+}
+
+.ecco-empty > :last-child {
+  margin-bottom: 0;
+}
+
+.ecco-empty-icon {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  background: var(--ecco-accent);
+  color: var(--ecco-primary);
+  font-family: var(--ecco-font-family);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.ecco-empty-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: block;
+}
+
+.ecco-empty h3,
+.ecco-empty h4 {
+  margin: 0;
+}
+
+.ecco-empty p {
+  margin: 0;
+  max-width: 28rem;
+  color: var(--ecco-muted);
+}
+
+.ecco-empty .ecco-cluster {
+  margin-top: 0.35rem;
+  justify-content: center;
+}
+
+.ecco-empty .ecco-cluster button,
+.ecco-empty .ecco-cluster a[role="button"] {
+  margin: 0;
+}
+
+@media (max-width: 40rem) {
+  .ecco-empty .ecco-cluster button,
+  .ecco-empty .ecco-cluster a[role="button"] {
+    width: auto;
+    display: inline-block;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/* Footer                                                                      */
+/* -------------------------------------------------------------------------- */
+
+.ecco-footer {
+  margin-top: calc(var(--ecco-spacing) * 2);
+  padding-block: calc(var(--ecco-spacing) * 1.75);
+  border-top: var(--ecco-border-width) solid var(--ecco-border);
+  background: var(--ecco-surface);
+  color: var(--ecco-muted);
+  font-size: var(--ecco-font-size-small);
+}
+
+.ecco-footer .ecco-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem 2rem;
+}
+
+.ecco-footer-brand {
+  display: grid;
+  gap: 0.35rem;
+  max-width: 22rem;
+}
+
+.ecco-footer-brand strong {
+  color: var(--ecco-text);
+  font-size: 1rem;
+}
+
+.ecco-footer-brand p {
+  margin: 0;
+}
+
+.ecco-footer nav ul {
+  gap: 0.5rem 1rem;
+}
+
+.ecco-footer a {
+  color: var(--ecco-muted);
+  text-decoration: none;
+}
+
+.ecco-footer a:hover {
+  color: var(--ecco-primary);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Callout / tip                                                               */
+/* -------------------------------------------------------------------------- */
+
+.ecco-callout {
+  margin: 0 0 var(--ecco-spacing);
+  padding: 0.85rem 1rem;
+  border: var(--ecco-border-width) solid var(--ecco-border);
+  border-radius: var(--ecco-border-radius);
+  background: var(--ecco-surface);
+  box-shadow: var(--ecco-shadow);
+}
+
+.ecco-callout > :first-child {
+  margin-top: 0;
+}
+
+.ecco-callout > :last-child {
+  margin-bottom: 0;
+}
+
+.ecco-callout-title {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}

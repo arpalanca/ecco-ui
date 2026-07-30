@@ -1,0 +1,23 @@
+<!-- Requires ecco-ui.js -->
+<div class="ecco-tabs" data-ecco-tabs>
+  <div class="ecco-tabs-list" role="tablist" aria-label="Example tabs">
+    <button type="button" role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="true">
+      Overview
+    </button>
+    <button type="button" role="tab" id="tab-usage" aria-controls="panel-usage" aria-selected="false">
+      Usage
+    </button>
+    <button type="button" role="tab" id="tab-api" aria-controls="panel-api" aria-selected="false">
+      API
+    </button>
+  </div>
+  <div class="ecco-tab-panel" role="tabpanel" id="panel-overview" aria-labelledby="tab-overview">
+    <p>Preview panels switch with a few lines of progressive enhancement.</p>
+  </div>
+  <div class="ecco-tab-panel" role="tabpanel" id="panel-usage" aria-labelledby="tab-usage" hidden>
+    <p>Copy the markup, keep the <code>aria-*</code> wiring, include <code>ecco-ui.js</code>.</p>
+  </div>
+  <div class="ecco-tab-panel" role="tabpanel" id="panel-api" aria-labelledby="tab-api" hidden>
+    <p>Or call <code>EccoUI.initTabs()</code> after you inject HTML.</p>
+  </div>
+</div>

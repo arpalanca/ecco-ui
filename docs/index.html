@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="Ecco UI: HTML components for Ecco CSS. Copy the HTML. Ship the UI."
+    />
+    <title>Ecco UI · Components for Ecco CSS</title>
+    <link rel="icon" href="./favicon.svg?v=4" type="image/svg+xml" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/arpalanca/eccocss@main/dist/ecco.min.css"
+    />
+    <link rel="stylesheet" href="./ecco-ui.min.css" />
+    <link rel="stylesheet" href="./docs.css" />
+  </head>
+  <body>
+    <aside class="docs-sidebar">
+      <a class="docs-brand" href="#top">
+        <img src="./favicon.svg?v=4" width="28" height="28" alt="" />
+        Ecco UI
+      </a>
+      <p class="docs-tagline">Components for Ecco. Copy the HTML. Ship the UI.</p>
+
+      <nav aria-label="Documentation">
+        <details class="docs-nav-section" open data-nav-section>
+          <summary class="docs-nav-summary">
+            <span class="docs-nav-icon" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M3 2.5A1.5 1.5 0 0 1 4.5 1h7A1.5 1.5 0 0 1 13 2.5v11a.5.5 0 0 1-.8.4L8 11.1l-4.2 2.8a.5.5 0 0 1-.8-.4v-11z"/></svg>
+            </span>
+            <span class="docs-nav-title">Getting started</span>
+          </summary>
+          <ul>
+            <li><a href="#top">Overview</a></li>
+            <li><a href="#install">Install</a></li>
+            <li><a href="#usage">Usage</a></li>
+            <li><a href="#relationship">With Ecco CSS</a></li>
+          </ul>
+        </details>
+
+        <details class="docs-nav-section" data-nav-section>
+          <summary class="docs-nav-summary">
+            <span class="docs-nav-icon docs-nav-icon--structure" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M1.5 2.5A1.5 1.5 0 0 1 3 1h10a1.5 1.5 0 0 1 1.5 1.5v2A1.5 1.5 0 0 1 13 6H3A1.5 1.5 0 0 1 1.5 4.5v-2zM1.5 9A1.5 1.5 0 0 1 3 7.5h4A1.5 1.5 0 0 1 8.5 9v4A1.5 1.5 0 0 1 7 14.5H3A1.5 1.5 0 0 1 1.5 13V9zm8 0A1.5 1.5 0 0 1 11 7.5h2A1.5 1.5 0 0 1 14.5 9v4a1.5 1.5 0 0 1-1.5 1.5h-2A1.5 1.5 0 0 1 9.5 13V9z"/></svg>
+            </span>
+            <span class="docs-nav-title">Structure</span>
+          </summary>
+          <ul>
+            <li><a href="#nav">Nav</a></li>
+            <li><a href="#hero">Hero</a></li>
+            <li><a href="#footer">Footer</a></li>
+            <li><a href="#breadcrumb">Breadcrumb</a></li>
+            <li><a href="#layout">Layout</a></li>
+          </ul>
+        </details>
+
+        <details class="docs-nav-section" data-nav-section>
+          <summary class="docs-nav-summary">
+            <span class="docs-nav-icon docs-nav-icon--components" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M2 3.5A1.5 1.5 0 0 1 3.5 2h3A1.5 1.5 0 0 1 8 3.5v3A1.5 1.5 0 0 1 6.5 8h-3A1.5 1.5 0 0 1 2 6.5v-3zm6 0A1.5 1.5 0 0 1 9.5 2h3A1.5 1.5 0 0 1 14 3.5v3A1.5 1.5 0 0 1 12.5 8h-3A1.5 1.5 0 0 1 8 6.5v-3zM2 9.5A1.5 1.5 0 0 1 3.5 8h3A1.5 1.5 0 0 1 8 9.5v3A1.5 1.5 0 0 1 6.5 14h-3A1.5 1.5 0 0 1 2 12.5v-3zm6 0A1.5 1.5 0 0 1 9.5 8h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 8 12.5v-3z"/></svg>
+            </span>
+            <span class="docs-nav-title">Components</span>
+          </summary>
+          <ul>
+            <li><a href="#buttons">Buttons</a></li>
+            <li><a href="#card">Card</a></li>
+            <li><a href="#alert">Alert</a></li>
+            <li><a href="#badge">Badge</a></li>
+            <li><a href="#callout">Callout</a></li>
+            <li><a href="#empty">Empty</a></li>
+          </ul>
+        </details>
+
+        <details class="docs-nav-section" data-nav-section>
+          <summary class="docs-nav-summary">
+            <span class="docs-nav-icon docs-nav-icon--interactive" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M3.2 1.4a.75.75 0 0 1 .82.12l8.5 7.25a.75.75 0 0 1-.36 1.3l-3.35.45 1.55 3.5a.75.75 0 1 1-1.38.62l-1.6-3.6-2.55 2.2a.75.75 0 0 1-1.23-.55V2.1a.75.75 0 0 1 .6-.7z"/></svg>
+            </span>
+            <span class="docs-nav-title">Interactive</span>
+          </summary>
+          <ul>
+            <li><a href="#tabs">Tabs</a></li>
+            <li><a href="#modal">Modal</a></li>
+            <li><a href="#accordion">Accordion</a></li>
+          </ul>
+        </details>
+
+        <details class="docs-nav-section" data-nav-section>
+          <summary class="docs-nav-summary">
+            <span class="docs-nav-icon docs-nav-icon--guides" aria-hidden="true">
+              <svg viewBox="0 0 16 16" fill="currentColor"><path d="M5.78 3.22a.75.75 0 0 1 0 1.06L3.06 7l2.72 2.72a.75.75 0 0 1-1.06 1.06l-3.25-3.25a.75.75 0 0 1 0-1.06l3.25-3.25a.75.75 0 0 1 1.06 0zm4.44 0a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06l-3.25 3.25a.75.75 0 1 1-1.06-1.06L12.94 7 10.22 4.28a.75.75 0 0 1 0-1.06z"/></svg>
+            </span>
+            <span class="docs-nav-title">Guides</span>
+          </summary>
+          <ul>
+            <li><a href="#frameworks">Frameworks</a></li>
+            <li><a href="#snippets">Snippets</a></li>
+            <li>
+              <a href="https://github.com/arpalanca/ecco-ui" rel="noopener"
+                >GitHub</a
+              >
+            </li>
+            <li>
+              <a href="https://arpalanca.github.io/eccocss/" rel="noopener"
+                >Ecco CSS</a
+              >
+            </li>
+          </ul>
+        </details>
+      </nav>
+
+      <p class="docs-meta">
+        Companion to
+        <a href="https://github.com/arpalanca/eccocss">Ecco CSS</a>.<br />
+        <a href="https://github.com/arpalanca/ecco-ui">View on GitHub</a>
+      </p>
+    </aside>
+
+    <div class="docs-content">
+      <header class="docs-hero-wrap" id="top">
+        <section class="ecco-hero ecco-full">
+          <div class="ecco-inner">
+            <p class="ecco-hero-kicker">Companion to Ecco CSS</p>
+            <h1>Ecco UI</h1>
+            <p>Components for Ecco. Copy the HTML. Ship the UI.</p>
+            <div class="ecco-hero-actions">
+              <a href="#install" role="button">Get started</a>
+              <a href="#components" role="button" class="ecco-btn-outline"
+                >Browse components</a
+              >
+            </div>
+          </div>
+        </section>
+      </header>
+
+      <main>
+        <section id="overview" aria-labelledby="overview-title">
+          <h2 id="overview-title">Overview</h2>
+          <p class="docs-lead">
+            Ecco UI is a small companion library for
+            <a href="https://arpalanca.github.io/eccocss/">Ecco CSS</a>. The
+            classless core stays classless. These are opt-in HTML patterns:
+            navs, cards, heroes, and modals that reuse <code>--ecco-*</code>
+            tokens and need almost no extra CSS or JS.
+          </p>
+          <ul class="docs-example-list">
+            <li>Copy-paste HTML snippets, ready for production pages</li>
+            <li>Styles sit on Ecco CSS variables (light/dark included)</li>
+            <li>HTML + CSS first; tiny JS only for tabs and modals</li>
+            <li>Works in plain HTML, React, Vue, Svelte, and friends</li>
+          </ul>
+          <p class="docs-tip">
+            <strong>How to read these docs.</strong> Open
+            <strong>Preview</strong> to try a component.
+            <strong>HTML</strong> shows the markup. Hit <strong>Copy</strong>.
+            Standalone files also live in
+            <code>snippets/</code> in the repo.
+          </p>
+
+          <div class="docs-component-grid" id="components">
+            <a href="#nav"><strong>Nav</strong><span>Site header</span></a>
+            <a href="#hero"><strong>Hero</strong><span>Landing block</span></a>
+            <a href="#card"><strong>Card</strong><span>Content panel</span></a>
+            <a href="#alert"><strong>Alert</strong><span>Status messages</span></a>
+            <a href="#tabs"><strong>Tabs</strong><span>Needs tiny JS</span></a>
+            <a href="#modal"><strong>Modal</strong><span>Native dialog</span></a>
+            <a href="#frameworks"
+              ><strong>Frameworks</strong><span>React · Vue · Svelte</span></a
+            >
+            <a href="#snippets"
+              ><strong>Snippets</strong><span>Copy-paste files</span></a
+            >
+          </div>
+        </section>
+
+        <section id="install">
+          <h2>Install</h2>
+          <p class="docs-lead">
+            Link <strong>Ecco CSS</strong> first, then <strong>Ecco UI</strong>.
+            Add the script only if you use tabs or modals.
+          </p>
+
+          <div class="docs-tabs" data-docs-tabs>
+            <div class="docs-tabs-list" role="tablist" aria-label="Install methods">
+              <button
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="install-cdn"
+                id="tab-install-cdn"
+              >
+                CDN
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="install-npm"
+                id="tab-install-npm"
+              >
+                npm
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="install-download"
+                id="tab-install-download"
+              >
+                Download
+              </button>
+            </div>
+
+            <div
+              class="docs-tab-panel"
+              role="tabpanel"
+              id="install-cdn"
+              aria-labelledby="tab-install-cdn"
+            >
+              <pre data-lang="HTML" data-title="CDN links"><code>&lt;link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/arpalanca/eccocss@main/dist/ecco.min.css"
+/&gt;
+&lt;link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/arpalanca/ecco-ui@main/dist/ecco-ui.min.css"
+/&gt;
+&lt;!-- Optional: tabs + modals --&gt;
+&lt;script src="https://cdn.jsdelivr.net/gh/arpalanca/ecco-ui@main/dist/ecco-ui.min.js" defer&gt;&lt;/script&gt;</code></pre>
+              <p class="docs-note">
+                For production, pin a tag or commit SHA instead of
+                <code>@main</code>.
+              </p>
+            </div>
+
+            <div
+              class="docs-tab-panel"
+              role="tabpanel"
+              id="install-npm"
+              aria-labelledby="tab-install-npm"
+              hidden
+            >
+              <pre data-lang="Shell" data-title="Install"><code>npm install github:arpalanca/eccocss github:arpalanca/ecco-ui</code></pre>
+              <pre data-lang="CSS" data-title="Import styles"><code>@import "eccocss/dist/ecco.min.css";
+@import "ecco-ui/dist/ecco-ui.min.css";</code></pre>
+              <pre data-lang="JavaScript" data-title="Optional JS"><code>import "ecco-ui/dist/ecco-ui.min.js";
+// or: import { ... } via window.EccoUI after the script loads</code></pre>
+            </div>
+
+            <div
+              class="docs-tab-panel"
+              role="tabpanel"
+              id="install-download"
+              aria-labelledby="tab-install-download"
+              hidden
+            >
+              <ul class="docs-example-list">
+                <li>
+                  <a
+                    href="https://github.com/arpalanca/ecco-ui/raw/main/dist/ecco-ui.min.css"
+                    >ecco-ui.min.css</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/arpalanca/ecco-ui/raw/main/dist/ecco-ui.min.js"
+                    >ecco-ui.min.js</a
+                  >
+                  (optional)
+                </li>
+                <li>
+                  <a href="https://github.com/arpalanca/ecco-ui/archive/refs/heads/main.zip"
+                    >Download ZIP</a
+                  >
+                </li>
+              </ul>
+              <pre data-lang="HTML" data-title="Local files"><code>&lt;link rel="stylesheet" href="css/ecco.min.css" /&gt;
+&lt;link rel="stylesheet" href="css/ecco-ui.min.css" /&gt;
+&lt;script src="js/ecco-ui.min.js" defer&gt;&lt;/script&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section id="usage">
+          <h2>Usage</h2>
+          <p class="docs-lead">
+            Paste a snippet. Keep Ecco’s semantic landmarks for page chrome.
+            Use <code>.ecco-full</code> when a block should span the viewport
+            (nav, hero, footer).
+          </p>
+          <pre data-lang="HTML" data-title="Starter page"><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+    &lt;meta name="color-scheme" content="light dark" /&gt;
+    &lt;title&gt;Hello Ecco UI&lt;/title&gt;
+    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/arpalanca/eccocss@main/dist/ecco.min.css" /&gt;
+    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/arpalanca/ecco-ui@main/dist/ecco-ui.min.css" /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- paste a nav / hero snippet --&gt;
+    &lt;main&gt;
+      &lt;article class="ecco-card"&gt;
+        &lt;h3 class="ecco-card-title"&gt;Ready&lt;/h3&gt;
+        &lt;p class="ecco-card-body"&gt;Copy the HTML. Ship the UI.&lt;/p&gt;
+      &lt;/article&gt;
+    &lt;/main&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </section>
+
+        <section id="relationship">
+          <h2>With Ecco CSS</h2>
+          <p class="docs-lead">
+            Ecco UI does not fork or replace Ecco CSS. Think of it as the
+            “composed patterns” layer on top of the classless core.
+          </p>
+          <ul class="docs-example-list">
+            <li>
+              <strong>Ecco CSS</strong>: style by tag: headings, forms,
+              tables, buttons, dialogs
+            </li>
+            <li>
+              <strong>Ecco UI</strong>: opt-in classes for multi-part UI:
+              <code>.ecco-card</code>, <code>.ecco-nav</code>, …
+            </li>
+            <li>
+              Both share <code>--ecco-*</code> tokens. Theme once; both follow.
+            </li>
+          </ul>
+          <aside class="ecco-callout">
+            <p class="ecco-callout-title">Rule of thumb</p>
+            <p>
+              If a single semantic element is enough, stay classless. Reach for
+              Ecco UI when you need a pattern with structure.
+            </p>
+          </aside>
+        </section>
+
+        <!-- Nav -->
+        <section id="nav">
+          <h2>Nav</h2>
+          <p class="docs-lead">
+            Full-bleed header with brand, links, and actions. Uses
+            <code>.ecco-full</code> + <code>.ecco-inner</code> for width control.
+          </p>
+          <div class="docs-tabs" data-docs-tabs>
+            <div class="docs-tabs-list" role="tablist" aria-label="Nav example">
+              <button type="button" role="tab" aria-selected="true" aria-controls="nav-preview" id="tab-nav-preview">Preview</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="nav-html" id="tab-nav-html">HTML</button>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="nav-preview" aria-labelledby="tab-nav-preview">
+              <div class="docs-demo">
+                <header class="ecco-nav ecco-full">
+                  <div class="ecco-inner">
+                    <a class="ecco-nav-brand" href="#nav">Ecco UI</a>
+                    <ul class="ecco-nav-menu">
+                      <li><a href="#components" aria-current="page">Components</a></li>
+                      <li><a href="#docs">Docs</a></li>
+                      <li><a href="#github">GitHub</a></li>
+                    </ul>
+                    <div class="ecco-nav-actions">
+                      <a href="#install" role="button" class="ecco-btn-sm">Get started</a>
+                    </div>
+                  </div>
+                </header>
+              </div>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="nav-html" aria-labelledby="tab-nav-html" hidden>
+              <pre data-lang="HTML" data-title="Nav"><code>&lt;header class="ecco-nav ecco-full"&gt;
+  &lt;div class="ecco-inner"&gt;
+    &lt;a class="ecco-nav-brand" href="/"&gt;Ecco UI&lt;/a&gt;
+    &lt;ul class="ecco-nav-menu"&gt;
+      &lt;li&gt;&lt;a href="#components" aria-current="page"&gt;Components&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#docs"&gt;Docs&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class="ecco-nav-actions"&gt;
+      &lt;a href="#get-started" role="button" class="ecco-btn-sm"&gt;Get started&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</code></pre>
+            </div>
+          </div>
+          <p class="docs-note">Snippet: <code>snippets/nav.html</code></p>
+        </section>
+
+        <!-- Hero -->
+        <section id="hero">
+          <h2>Hero</h2>
+          <p class="docs-lead">
+            Landing block with brand-first headline, support line, and CTAs.
+            Soft gradients use Ecco accent/primary tokens. No images required.
+          </p>
+          <div class="docs-tabs" data-docs-tabs>
+            <div class="docs-tabs-list" role="tablist" aria-label="Hero example">
+              <button type="button" role="tab" aria-selected="true" aria-controls="hero-preview" id="tab-hero-preview">Preview</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="hero-html" id="tab-hero-html">HTML</button>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="hero-preview" aria-labelledby="tab-hero-preview">
+              <div class="docs-demo">
+                <section class="ecco-hero ecco-full">
+                  <div class="ecco-inner">
+                    <p class="ecco-hero-kicker">Companion to Ecco CSS</p>
+                    <h1>Ecco UI</h1>
+                    <p>Copy the HTML. Ship the UI.</p>
+                    <div class="ecco-hero-actions">
+                      <a href="#components" role="button">Browse</a>
+                      <a href="#install" role="button" class="ecco-btn-outline">Install</a>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="hero-html" aria-labelledby="tab-hero-html" hidden>
+              <pre data-lang="HTML" data-title="Hero"><code>&lt;section class="ecco-hero ecco-full"&gt;
+  &lt;div class="ecco-inner"&gt;
+    &lt;p class="ecco-hero-kicker"&gt;Companion to Ecco CSS&lt;/p&gt;
+    &lt;h1&gt;Ecco UI&lt;/h1&gt;
+    &lt;p&gt;Copy the HTML. Ship the UI.&lt;/p&gt;
+    &lt;div class="ecco-hero-actions"&gt;
+      &lt;a href="#components" role="button"&gt;Browse&lt;/a&gt;
+      &lt;a href="#install" role="button" class="ecco-btn-outline"&gt;Install&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+            </div>
+          </div>
+          <p class="docs-note">Snippet: <code>snippets/hero.html</code></p>
+        </section>
+
+        <!-- Buttons -->
+        <section id="buttons">
+          <h2>Buttons</h2>
+          <p class="docs-lead">
+            Ecco CSS already styles native buttons. Ecco UI adds outline, ghost,
+            and size variants.
+          </p>
+          <div class="docs-tabs" data-docs-tabs>
+            <div class="docs-tabs-list" role="tablist" aria-label="Buttons example">
+              <button type="button" role="tab" aria-selected="true" aria-controls="btn-preview" id="tab-btn-preview">Preview</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="btn-html" id="tab-btn-html">HTML</button>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="btn-preview" aria-labelledby="tab-btn-preview">
+              <div class="docs-demo ecco-cluster">
+                <button type="button">Primary</button>
+                <button type="button" class="ecco-btn-outline">Outline</button>
+                <button type="button" class="ecco-btn-ghost">Ghost</button>
+                <button type="button" class="ecco-btn-sm">Small</button>
+                <button type="reset">Reset</button>
+              </div>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="btn-html" aria-labelledby="tab-btn-html" hidden>
+              <pre data-lang="HTML" data-title="Buttons"><code>&lt;button type="button"&gt;Primary&lt;/button&gt;
+&lt;button type="button" class="ecco-btn-outline"&gt;Outline&lt;/button&gt;
+&lt;button type="button" class="ecco-btn-ghost"&gt;Ghost&lt;/button&gt;
+&lt;button type="button" class="ecco-btn-sm"&gt;Small&lt;/button&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card -->
+        <section id="card">
+          <h2>Card</h2>
+          <p class="docs-lead">
+            Surface panel for media, title, body, and actions. Pair with
+            <code>.ecco-grid</code> for card lists.
+          </p>
+          <div class="docs-tabs" data-docs-tabs>
+            <div class="docs-tabs-list" role="tablist" aria-label="Card example">
+              <button type="button" role="tab" aria-selected="true" aria-controls="card-preview" id="tab-card-preview">Preview</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="card-html" id="tab-card-html">HTML</button>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="card-preview" aria-labelledby="tab-card-preview">
+              <div class="docs-demo" style="max-width: 22rem">
+                <article class="ecco-card">
+                  <div class="ecco-card-media" style="background: linear-gradient(135deg, var(--ecco-accent), var(--ecco-bg-subtle))" role="img" aria-label=""></div>
+                  <h3 class="ecco-card-title">Card title</h3>
+                  <p class="ecco-card-meta">Optional meta · 3 min read</p>
+                  <div class="ecco-card-body">
+                    <p>Short supporting copy on Ecco surface tokens.</p>
+                  </div>
+                  <div class="ecco-card-footer">
+                    <a href="#card" role="button" class="ecco-btn-sm">Open</a>
+                    <button type="button" class="ecco-btn-ghost ecco-btn-sm">Save</button>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="card-html" aria-labelledby="tab-card-html" hidden>
+              <pre data-lang="HTML" data-title="Card"><code>&lt;article class="ecco-card"&gt;
+  &lt;img class="ecco-card-media" src="image.jpg" alt="" /&gt;
+  &lt;h3 class="ecco-card-title"&gt;Card title&lt;/h3&gt;
+  &lt;p class="ecco-card-meta"&gt;Optional meta&lt;/p&gt;
+  &lt;div class="ecco-card-body"&gt;
+    &lt;p&gt;Short supporting copy.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="ecco-card-footer"&gt;
+    &lt;a href="#" role="button" class="ecco-btn-sm"&gt;Open&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</code></pre>
+            </div>
+          </div>
+          <p class="docs-note">Snippet: <code>snippets/card.html</code></p>
+        </section>
+
+        <!-- Alert -->
+        <section id="alert">
+          <h2>Alert</h2>
+          <p class="docs-lead">
+            Status messages with info, success, warning, and danger modifiers.
+            Use <code>role="status"</code> or <code>role="alert"</code> as
+            appropriate.
+          </p>
+          <div class="docs-tabs" data-docs-tabs>
+            <div class="docs-tabs-list" role="tablist" aria-label="Alert example">
+              <button type="button" role="tab" aria-selected="true" aria-controls="alert-preview" id="tab-alert-preview">Preview</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="alert-html" id="tab-alert-html">HTML</button>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="alert-preview" aria-labelledby="tab-alert-preview">
+              <div class="docs-demo ecco-stack">
+                <div class="ecco-alert" role="status">
+                  <span class="ecco-alert-icon" aria-hidden="true">i</span>
+                  <div class="ecco-alert-body">
+                    <strong>Heads up</strong>
+                    <p>Link Ecco CSS first, then Ecco UI.</p>
+                  </div>
+                </div>
+                <div class="ecco-alert ecco-alert--success" role="status">
+                  <span class="ecco-alert-icon" aria-hidden="true">✓</span>
+                  <div class="ecco-alert-body">
+                    <strong>Saved</strong>
+                    <p>Your changes are live.</p>
+                  </div>
+                </div>
+                <div class="ecco-alert ecco-alert--warning" role="status">
+                  <span class="ecco-alert-icon" aria-hidden="true">!</span>
+                  <div class="ecco-alert-body">
+                    <strong>Pin your CDN</strong>
+                    <p>Prefer a version tag over <code>@main</code>.</p>
+                  </div>
+                </div>
+                <div class="ecco-alert ecco-alert--danger" role="alert">
+                  <span class="ecco-alert-icon" aria-hidden="true">!</span>
+                  <div class="ecco-alert-body">
+                    <strong>Could not publish</strong>
+                    <p>Fix the form errors and try again.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="alert-html" aria-labelledby="tab-alert-html" hidden>
+              <pre data-lang="HTML" data-title="Alert"><code>&lt;div class="ecco-alert ecco-alert--success" role="status"&gt;
+  &lt;span class="ecco-alert-icon" aria-hidden="true"&gt;✓&lt;/span&gt;
+  &lt;div class="ecco-alert-body"&gt;
+    &lt;strong&gt;Saved&lt;/strong&gt;
+    &lt;p&gt;Your changes are live.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+              <p class="docs-note">
+                Icon slot accepts a character or a small SVG. The chip styles either.
+              </p>
+            </div>
+          </div>
+          <p class="docs-note">Snippet: <code>snippets/alert.html</code></p>
+        </section>
+
+        <!-- Badge -->
+        <section id="badge">
+          <h2>Badge</h2>
+          <p class="docs-lead">Compact labels for status, counts, and categories.</p>
+          <div class="docs-tabs" data-docs-tabs>
+            <div class="docs-tabs-list" role="tablist" aria-label="Badge example">
+              <button type="button" role="tab" aria-selected="true" aria-controls="badge-preview" id="tab-badge-preview">Preview</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="badge-html" id="tab-badge-html">HTML</button>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="badge-preview" aria-labelledby="tab-badge-preview">
+              <div class="docs-demo ecco-cluster">
+                <span class="ecco-badge">Default</span>
+                <span class="ecco-badge ecco-badge--primary">Primary</span>
+                <span class="ecco-badge ecco-badge--accent">Accent</span>
+                <span class="ecco-badge ecco-badge--success">Success</span>
+                <span class="ecco-badge ecco-badge--warning">Warning</span>
+                <span class="ecco-badge ecco-badge--danger">Danger</span>
+              </div>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="badge-html" aria-labelledby="tab-badge-html" hidden>
+              <pre data-lang="HTML" data-title="Badge"><code>&lt;span class="ecco-badge"&gt;Default&lt;/span&gt;
+&lt;span class="ecco-badge ecco-badge--primary"&gt;Primary&lt;/span&gt;
+&lt;span class="ecco-badge ecco-badge--success"&gt;Success&lt;/span&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Breadcrumb -->
+        <section id="breadcrumb">
+          <h2>Breadcrumb</h2>
+          <p class="docs-lead">
+            Navigation trail with accessible current page marking.
+          </p>
+          <div class="docs-tabs" data-docs-tabs>
+            <div class="docs-tabs-list" role="tablist" aria-label="Breadcrumb example">
+              <button type="button" role="tab" aria-selected="true" aria-controls="crumb-preview" id="tab-crumb-preview">Preview</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="crumb-html" id="tab-crumb-html">HTML</button>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="crumb-preview" aria-labelledby="tab-crumb-preview">
+              <div class="docs-demo">
+                <nav class="ecco-breadcrumb" aria-label="Breadcrumb">
+                  <ol>
+                    <li><a href="#top">Home</a></li>
+                    <li><a href="#components">Docs</a></li>
+                    <li><span aria-current="page">Cards</span></li>
+                  </ol>
+                </nav>
+              </div>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="crumb-html" aria-labelledby="tab-crumb-html" hidden>
+              <pre data-lang="HTML" data-title="Breadcrumb"><code>&lt;nav class="ecco-breadcrumb" aria-label="Breadcrumb"&gt;
+  &lt;ol&gt;
+    &lt;li&gt;&lt;a href="/"&gt;Home&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="/docs"&gt;Docs&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;span aria-current="page"&gt;Cards&lt;/span&gt;&lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tabs -->
+        <section id="tabs">
+          <h2>Tabs</h2>
+          <p class="docs-lead">
+            Accessible tablist with keyboard support. Include
+            <code>ecco-ui.js</code> (or call <code>EccoUI.initTabs()</code>).
+          </p>
+          <div class="docs-tabs" data-docs-tabs>
+            <div class="docs-tabs-list" role="tablist" aria-label="Tabs docs example">
+              <button type="button" role="tab" aria-selected="true" aria-controls="tabs-preview" id="tab-tabs-preview">Preview</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="tabs-html" id="tab-tabs-html">HTML</button>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="tabs-preview" aria-labelledby="tab-tabs-preview">
+              <div class="docs-demo">
+                <div class="ecco-tabs" data-ecco-tabs>
+                  <div class="ecco-tabs-list" role="tablist" aria-label="Example tabs">
+                    <button type="button" role="tab" id="demo-tab-1" aria-controls="demo-panel-1" aria-selected="true">Overview</button>
+                    <button type="button" role="tab" id="demo-tab-2" aria-controls="demo-panel-2" aria-selected="false">Usage</button>
+                    <button type="button" role="tab" id="demo-tab-3" aria-controls="demo-panel-3" aria-selected="false">API</button>
+                  </div>
+                  <div class="ecco-tab-panel" role="tabpanel" id="demo-panel-1" aria-labelledby="demo-tab-1">
+                    <p>Preview panels switch with progressive enhancement.</p>
+                  </div>
+                  <div class="ecco-tab-panel" role="tabpanel" id="demo-panel-2" aria-labelledby="demo-tab-2" hidden>
+                    <p>Keep the <code>aria-*</code> wiring; include <code>ecco-ui.js</code>.</p>
+                  </div>
+                  <div class="ecco-tab-panel" role="tabpanel" id="demo-panel-3" aria-labelledby="demo-tab-3" hidden>
+                    <p>Call <code>EccoUI.initTabs()</code> after injecting HTML.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="tabs-html" aria-labelledby="tab-tabs-html" hidden>
+              <pre data-lang="HTML" data-title="Tabs"><code>&lt;div class="ecco-tabs" data-ecco-tabs&gt;
+  &lt;div class="ecco-tabs-list" role="tablist" aria-label="Example tabs"&gt;
+    &lt;button type="button" role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true"&gt;Overview&lt;/button&gt;
+    &lt;button type="button" role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false"&gt;Usage&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="ecco-tab-panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1"&gt;…&lt;/div&gt;
+  &lt;div class="ecco-tab-panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" hidden&gt;…&lt;/div&gt;
+&lt;/div&gt;
+&lt;script src="ecco-ui.min.js" defer&gt;&lt;/script&gt;</code></pre>
+            </div>
+          </div>
+          <p class="docs-note">Snippet: <code>snippets/tabs.html</code> · Needs JS</p>
+        </section>
+
+        <!-- Modal -->
+        <section id="modal">
+          <h2>Modal</h2>
+          <p class="docs-lead">
+            Built on native <code>&lt;dialog&gt;</code>. Triggers use
+            <code>data-ecco-open</code>; closers use <code>data-ecco-close</code>.
+            Backdrop click and Escape work out of the box.
+          </p>
+          <div class="docs-tabs" data-docs-tabs>
+            <div class="docs-tabs-list" role="tablist" aria-label="Modal example">
+              <button type="button" role="tab" aria-selected="true" aria-controls="modal-preview" id="tab-modal-preview">Preview</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="modal-html" id="tab-modal-html">HTML</button>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="modal-preview" aria-labelledby="tab-modal-preview">
+              <div class="docs-demo">
+                <button type="button" data-ecco-open="docs-confirm-modal">Open modal</button>
+                <dialog class="ecco-modal" id="docs-confirm-modal" aria-labelledby="docs-confirm-title">
+                  <div class="ecco-modal-header">
+                    <h2 id="docs-confirm-title">Publish changes?</h2>
+                    <button type="button" class="ecco-modal-close" data-ecco-close aria-label="Close">×</button>
+                  </div>
+                  <div class="ecco-modal-body">
+                    <p>This will update the live docs. You can undo from Git history.</p>
+                  </div>
+                  <div class="ecco-modal-footer">
+                    <button type="button" class="ecco-btn-ghost" data-ecco-close>Cancel</button>
+                    <button type="button" data-ecco-close>Publish</button>
+                  </div>
+                </dialog>
+              </div>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="modal-html" aria-labelledby="tab-modal-html" hidden>
+              <pre data-lang="HTML" data-title="Modal"><code>&lt;button type="button" data-ecco-open="confirm-modal"&gt;Open modal&lt;/button&gt;
+
+&lt;dialog class="ecco-modal" id="confirm-modal" aria-labelledby="confirm-title"&gt;
+  &lt;div class="ecco-modal-header"&gt;
+    &lt;h2 id="confirm-title"&gt;Publish changes?&lt;/h2&gt;
+    &lt;button type="button" class="ecco-modal-close" data-ecco-close aria-label="Close"&gt;×&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="ecco-modal-body"&gt;
+    &lt;p&gt;This will update the live docs.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="ecco-modal-footer"&gt;
+    &lt;button type="button" class="ecco-btn-ghost" data-ecco-close&gt;Cancel&lt;/button&gt;
+    &lt;button type="button"&gt;Publish&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/dialog&gt;
+&lt;script src="ecco-ui.min.js" defer&gt;&lt;/script&gt;</code></pre>
+            </div>
+          </div>
+          <p class="docs-note">Snippet: <code>snippets/modal.html</code> · Needs JS</p>
+        </section>
+
+        <!-- Accordion -->
+        <section id="accordion">
+          <h2>Accordion</h2>
+          <p class="docs-lead">
+            Zero JS. Stacked <code>details</code> with a light Ecco UI skin.
+          </p>
+          <div class="docs-tabs" data-docs-tabs>
+            <div class="docs-tabs-list" role="tablist" aria-label="Accordion example">
+              <button type="button" role="tab" aria-selected="true" aria-controls="acc-preview" id="tab-acc-preview">Preview</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="acc-html" id="tab-acc-html">HTML</button>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="acc-preview" aria-labelledby="tab-acc-preview">
+              <div class="docs-demo">
+                <div class="ecco-accordion">
+                  <details open>
+                    <summary>Do I need JavaScript?</summary>
+                    <p>Only for tabs and modals. Accordion uses native <code>details</code>.</p>
+                  </details>
+                  <details>
+                    <summary>Does this replace Ecco CSS?</summary>
+                    <p>No. Ecco UI is a companion. Link Ecco CSS first.</p>
+                  </details>
+                  <details>
+                    <summary>Can I theme these?</summary>
+                    <p>Yes. Override the same <code>--ecco-*</code> tokens.</p>
+                  </details>
+                </div>
+              </div>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="acc-html" aria-labelledby="tab-acc-html" hidden>
+              <pre data-lang="HTML" data-title="Accordion"><code>&lt;div class="ecco-accordion"&gt;
+  &lt;details open&gt;
+    &lt;summary&gt;Do I need JavaScript?&lt;/summary&gt;
+    &lt;p&gt;Only for tabs and modals.&lt;/p&gt;
+  &lt;/details&gt;
+  &lt;details&gt;
+    &lt;summary&gt;Does this replace Ecco CSS?&lt;/summary&gt;
+    &lt;p&gt;No. It's a companion.&lt;/p&gt;
+  &lt;/details&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Empty -->
+        <section id="empty">
+          <h2>Empty state</h2>
+          <p class="docs-lead">Placeholder when a list or page has no content yet.</p>
+          <div class="docs-tabs" data-docs-tabs>
+            <div class="docs-tabs-list" role="tablist" aria-label="Empty example">
+              <button type="button" role="tab" aria-selected="true" aria-controls="empty-preview" id="tab-empty-preview">Preview</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="empty-html" id="tab-empty-html">HTML</button>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="empty-preview" aria-labelledby="tab-empty-preview">
+              <div class="docs-demo">
+                <div class="ecco-empty">
+                  <div class="ecco-empty-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+                      <rect x="2" y="3" width="12" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                      <path d="M5 8h6M5 10.5h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                  <h3>No projects yet</h3>
+                  <p>Create your first project to see shipping UI here.</p>
+                  <div class="ecco-cluster">
+                    <a href="#install" role="button">New project</a>
+                    <a href="#usage" role="button" class="ecco-btn-outline">Read docs</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="empty-html" aria-labelledby="tab-empty-html" hidden>
+              <pre data-lang="HTML" data-title="Empty state"><code>&lt;div class="ecco-empty"&gt;
+  &lt;div class="ecco-empty-icon" aria-hidden="true"&gt;∅&lt;/div&gt;
+  &lt;h3&gt;No projects yet&lt;/h3&gt;
+  &lt;p&gt;Create your first project to get started.&lt;/p&gt;
+  &lt;div class="ecco-cluster"&gt;
+    &lt;a href="#new" role="button"&gt;New project&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Layout -->
+        <section id="layout">
+          <h2>Layout</h2>
+          <p class="docs-lead">
+            Tiny helpers: <code>.ecco-stack</code> (vertical),
+            <code>.ecco-cluster</code> (wrap row), <code>.ecco-grid</code>
+            (auto-fit columns). Tune with <code>--ecco-ui-gap</code> and
+            <code>--ecco-ui-col</code>.
+          </p>
+          <div class="docs-tabs" data-docs-tabs>
+            <div class="docs-tabs-list" role="tablist" aria-label="Layout example">
+              <button type="button" role="tab" aria-selected="true" aria-controls="layout-preview" id="tab-layout-preview">Preview</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="layout-html" id="tab-layout-html">HTML</button>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="layout-preview" aria-labelledby="tab-layout-preview">
+              <div class="docs-demo">
+                <div class="ecco-grid" style="--ecco-ui-col: 10rem">
+                  <article class="ecco-card">
+                    <h3 class="ecco-card-title">One</h3>
+                    <p class="ecco-card-body">Auto-fit columns.</p>
+                  </article>
+                  <article class="ecco-card">
+                    <h3 class="ecco-card-title">Two</h3>
+                    <p class="ecco-card-body">Shared gaps.</p>
+                  </article>
+                  <article class="ecco-card">
+                    <h3 class="ecco-card-title">Three</h3>
+                    <p class="ecco-card-body">Token-friendly.</p>
+                  </article>
+                </div>
+              </div>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="layout-html" aria-labelledby="tab-layout-html" hidden>
+              <pre data-lang="HTML" data-title="Layout"><code>&lt;div class="ecco-grid" style="--ecco-ui-col: 12rem"&gt;
+  &lt;article class="ecco-card"&gt;…&lt;/article&gt;
+  &lt;article class="ecco-card"&gt;…&lt;/article&gt;
+  &lt;article class="ecco-card"&gt;…&lt;/article&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <section id="footer">
+          <h2>Footer</h2>
+          <p class="docs-lead">Simple site footer with brand blurb and links.</p>
+          <div class="docs-tabs" data-docs-tabs>
+            <div class="docs-tabs-list" role="tablist" aria-label="Footer example">
+              <button type="button" role="tab" aria-selected="true" aria-controls="footer-preview" id="tab-footer-preview">Preview</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="footer-html" id="tab-footer-html">HTML</button>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="footer-preview" aria-labelledby="tab-footer-preview">
+              <div class="docs-demo">
+                <footer class="ecco-footer ecco-full">
+                  <div class="ecco-inner">
+                    <div class="ecco-footer-brand">
+                      <strong>Ecco UI</strong>
+                      <p>Components for Ecco. Copy the HTML. Ship the UI.</p>
+                    </div>
+                    <nav aria-label="Footer">
+                      <ul>
+                        <li><a href="#components">Components</a></li>
+                        <li><a href="#frameworks">Frameworks</a></li>
+                        <li><a href="https://github.com/arpalanca/ecco-ui">GitHub</a></li>
+                      </ul>
+                    </nav>
+                  </div>
+                </footer>
+              </div>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="footer-html" aria-labelledby="tab-footer-html" hidden>
+              <pre data-lang="HTML" data-title="Footer"><code>&lt;footer class="ecco-footer ecco-full"&gt;
+  &lt;div class="ecco-inner"&gt;
+    &lt;div class="ecco-footer-brand"&gt;
+      &lt;strong&gt;Ecco UI&lt;/strong&gt;
+      &lt;p&gt;Components for Ecco.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;nav aria-label="Footer"&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#components"&gt;Components&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Callout -->
+        <section id="callout">
+          <h2>Callout</h2>
+          <p class="docs-lead">Quiet tip / note panel for docs and product UI.</p>
+          <div class="docs-tabs" data-docs-tabs>
+            <div class="docs-tabs-list" role="tablist" aria-label="Callout example">
+              <button type="button" role="tab" aria-selected="true" aria-controls="callout-preview" id="tab-callout-preview">Preview</button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="callout-html" id="tab-callout-html">HTML</button>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="callout-preview" aria-labelledby="tab-callout-preview">
+              <div class="docs-demo">
+                <aside class="ecco-callout">
+                  <p class="ecco-callout-title">Tip</p>
+                  <p>
+                    Prefer semantic HTML from Ecco CSS when you can. Reach for
+                    Ecco UI classes when you need a composed pattern.
+                  </p>
+                </aside>
+              </div>
+            </div>
+            <div class="docs-tab-panel" role="tabpanel" id="callout-html" aria-labelledby="tab-callout-html" hidden>
+              <pre data-lang="HTML" data-title="Callout"><code>&lt;aside class="ecco-callout"&gt;
+  &lt;p class="ecco-callout-title"&gt;Tip&lt;/p&gt;
+  &lt;p&gt;Prefer semantic HTML when you can.&lt;/p&gt;
+&lt;/aside&gt;</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- Frameworks -->
+        <section id="frameworks">
+          <h2>Frameworks</h2>
+          <p class="docs-lead">
+            Ecco UI is HTML-first. In React, Vue, or Svelte you import the CSS
+            once, paste the markup into your template, and initialize JS after
+            mount when you use tabs or modals.
+          </p>
+
+          <div class="docs-framework">
+            <h3>React</h3>
+            <p>
+              Use <code>className</code>. Self-close void tags. Call
+              <code>EccoUI.init()</code> in <code>useEffect</code> if you render
+              tabs/modals client-side.
+            </p>
+            <pre data-lang="JSX" data-title="React card"><code>import "eccocss/dist/ecco.min.css";
+import "ecco-ui/dist/ecco-ui.min.css";
+import { useEffect } from "react";
+
+export function AlertCard() {
+  useEffect(() => {
+    // optional: only needed for tabs/modals after client render
+    window.EccoUI?.init();
+  }, []);
+
+  return (
+    &lt;article className="ecco-card"&gt;
+      &lt;h3 className="ecco-card-title"&gt;Ship it&lt;/h3&gt;
+      &lt;p className="ecco-card-body"&gt;Copy the HTML. Adapt class → className.&lt;/p&gt;
+      &lt;div className="ecco-card-footer"&gt;
+        &lt;button type="button"&gt;Continue&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+  );
+}</code></pre>
+          </div>
+
+          <div class="docs-framework">
+            <h3>Vue</h3>
+            <p>
+              Import styles in <code>main.js</code> or the SFC. Templates keep
+              <code>class</code> as-is. Use <code>onMounted</code> for
+              <code>EccoUI.init()</code>.
+            </p>
+            <pre data-lang="Vue" data-title="Vue SFC"><code>&lt;script setup&gt;
+import { onMounted } from "vue";
+import "eccocss/dist/ecco.min.css";
+import "ecco-ui/dist/ecco-ui.min.css";
+import "ecco-ui/dist/ecco-ui.min.js";
+
+onMounted(() =&gt; {
+  window.EccoUI?.init();
+});
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class="ecco-alert ecco-alert--success" role="status"&gt;
+    &lt;span class="ecco-alert-icon" aria-hidden="true"&gt;✓&lt;/span&gt;
+    &lt;div class="ecco-alert-body"&gt;
+      &lt;strong&gt;Ready&lt;/strong&gt;
+      &lt;p&gt;Same markup as the HTML snippet.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;</code></pre>
+          </div>
+
+          <div class="docs-framework">
+            <h3>Svelte</h3>
+            <p>
+              Import CSS in <code>+layout.svelte</code> or the component. Markup
+              matches the snippets. Initialize in <code>onMount</code>.
+            </p>
+            <pre data-lang="Svelte" data-title="Svelte component"><code>&lt;script&gt;
+  import { onMount } from "svelte";
+  import "eccocss/dist/ecco.min.css";
+  import "ecco-ui/dist/ecco-ui.min.css";
+  import "ecco-ui/dist/ecco-ui.min.js";
+
+  onMount(() =&gt; {
+    window.EccoUI?.init();
+  });
+&lt;/script&gt;
+
+&lt;section class="ecco-hero ecco-full"&gt;
+  &lt;div class="ecco-inner"&gt;
+    &lt;p class="ecco-hero-kicker"&gt;Svelte + Ecco&lt;/p&gt;
+    &lt;h1&gt;Ecco UI&lt;/h1&gt;
+    &lt;p&gt;Copy the HTML. Ship the UI.&lt;/p&gt;
+    &lt;div class="ecco-hero-actions"&gt;
+      &lt;a href="#docs" role="button"&gt;Docs&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+          </div>
+
+          <aside class="ecco-callout">
+            <p class="ecco-callout-title">Framework tip</p>
+            <p>
+              You do not need wrappers for every component. Treat snippets as
+              the source of truth. Paste, rename attributes for JSX, and keep
+              accessibility attributes intact.
+            </p>
+          </aside>
+        </section>
+
+        <!-- Snippets -->
+        <section id="snippets">
+          <h2>Snippets</h2>
+          <p class="docs-lead">
+            Every component has a standalone file in
+            <code>snippets/</code>. Ideal for copying into static sites,
+            emailing a teammate, or dropping into a design handoff.
+          </p>
+          <ul class="docs-example-list">
+            <li><code>snippets/nav.html</code></li>
+            <li><code>snippets/hero.html</code></li>
+            <li><code>snippets/card.html</code></li>
+            <li><code>snippets/alert.html</code></li>
+            <li><code>snippets/badge.html</code></li>
+            <li><code>snippets/breadcrumb.html</code></li>
+            <li><code>snippets/tabs.html</code></li>
+            <li><code>snippets/modal.html</code></li>
+            <li><code>snippets/accordion.html</code></li>
+            <li><code>snippets/empty.html</code></li>
+            <li><code>snippets/layout.html</code></li>
+            <li><code>snippets/footer.html</code></li>
+            <li><code>snippets/buttons.html</code></li>
+            <li><code>snippets/callout.html</code></li>
+          </ul>
+          <p>
+            <a href="https://github.com/arpalanca/ecco-ui/tree/main/snippets"
+              >Browse snippets on GitHub →</a
+            >
+          </p>
+        </section>
+      </main>
+
+      <footer class="docs-page-footer">
+        <p>
+          Ecco UI · MIT ·
+          <a href="https://github.com/arpalanca/ecco-ui">GitHub</a>
+          · Companion to
+          <a href="https://github.com/arpalanca/eccocss">Ecco CSS</a>
+        </p>
+      </footer>
+    </div>
+
+    <script src="./ecco-ui.min.js" defer></script>
+    <script src="./docs.js" defer></script>
+  </body>
+</html>

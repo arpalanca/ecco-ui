@@ -1,0 +1,16 @@
+<!-- Requires ecco-ui.js (uses native <dialog>) -->
+<button type="button" data-ecco-open="confirm-modal">Open modal</button>
+
+<dialog class="ecco-modal" id="confirm-modal" aria-labelledby="confirm-title">
+  <div class="ecco-modal-header">
+    <h2 id="confirm-title">Publish changes?</h2>
+    <button type="button" class="ecco-modal-close" data-ecco-close aria-label="Close">×</button>
+  </div>
+  <div class="ecco-modal-body">
+    <p>This will update the live docs. You can undo from Git history.</p>
+  </div>
+  <div class="ecco-modal-footer">
+    <button type="button" class="ecco-btn-ghost" data-ecco-close>Cancel</button>
+    <button type="button">Publish</button>
+  </div>
+</dialog>

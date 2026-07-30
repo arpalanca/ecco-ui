@@ -1,0 +1,60 @@
+{
+  "name": "ecco-ui",
+  "version": "0.1.0",
+  "description": "HTML components and docs for Ecco CSS: copy-paste ready pieces that work with the classless core.",
+  "license": "MIT",
+  "author": "Alseus Robert Palanca",
+  "homepage": "https://github.com/arpalanca/ecco-ui#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arpalanca/ecco-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arpalanca/ecco-ui/issues"
+  },
+  "keywords": [
+    "css",
+    "components",
+    "html",
+    "ecco",
+    "eccocss",
+    "classless",
+    "ui",
+    "copy-paste"
+  ],
+  "main": "dist/ecco-ui.min.css",
+  "style": "dist/ecco-ui.min.css",
+  "unpkg": "dist/ecco-ui.min.css",
+  "jsdelivr": "dist/ecco-ui.min.css",
+  "exports": {
+    ".": "./dist/ecco-ui.min.css",
+    "./css": "./dist/ecco-ui.css",
+    "./min": "./dist/ecco-ui.min.css",
+    "./js": "./dist/ecco-ui.js",
+    "./js/min": "./dist/ecco-ui.min.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "css/",
+    "js/",
+    "dist/",
+    "snippets/",
+    "LICENSE",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "eccocss": "*"
+  },
+  "peerDependenciesMeta": {
+    "eccocss": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "lightningcss-cli": "^1.30.1"
+  }
+}

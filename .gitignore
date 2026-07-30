@@ -80,8 +80,8 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 .output
+# Ecco UI ships compiled CSS/JS in dist/ for CDN use (do not ignore dist/)
 
 # Gatsby files
 .cache/
