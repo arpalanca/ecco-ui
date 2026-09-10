@@ -143,7 +143,7 @@ Override Ecco CSS variables. Ecco UI follows automatically:
 }
 ```
 
-## Project layout
+## Project layout 
 
 ```
 css/ecco-ui.css      # source styles
