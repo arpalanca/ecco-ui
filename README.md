@@ -167,4 +167,4 @@ Modern evergreen browsers. Modals use the native `<dialog>` element. Light/dark 
 
 ## License
 
-[MIT](LICENSE) · © 2026 AR Palanca
+[MIT](LICENSE) · © 2026 AR Palanca 
